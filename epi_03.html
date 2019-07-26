@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>epi_03</title>
+</head>
+<body>
+    <div id="root">
+        <ul>
+            <li v-for="name in names" v-text="name"></li>
+        </ul>
+
+        <input  id ="input" type ="text" v-model="newName" @click:keyUp="addName">
+    <!-- v-on is used to add addEventListener in vue -->
+        <button v-on:click= "addName">Add name</button>
+    </div>
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        
+       var app = new Vue ({
+            el : '#root',
+
+            data :  {
+                    newName : "",
+                    names : ['joe','mary','john','james']
+        },
+
+        methods : {
+            addName () {
+                this.names.push(this.newName);
+                this.newName ='';
+            },
+        }
+         
+        });
+        
+       
+    </script>
+</body>
+</html>
